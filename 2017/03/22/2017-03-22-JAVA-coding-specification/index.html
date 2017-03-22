@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Java语言编程规范总结 | Walker</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Java语言编程规范总结</h1><a id="logo" href="/.">Walker</a><p class="description">但行好事，莫问前程。</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Java语言编程规范总结</h1><div class="post-meta">Mar 22, 2017<span> | </span><span class="category"><a href="/categories/Java核心技术/">Java核心技术</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><div class="post-content"><h3 id="编程规约"><a href="#编程规约" class="headerlink" title="编程规约"></a>编程规约</h3><ul>
+<li><p>命名规约</p>
+<ul>
+<li><strong>【强制】</strong>类名使用 <strong>UpperCamelCase</strong> 风格，必须遵从驼峰形式，但以下情形例外:(领域模型的相关命名)DO / BO / DTO / VO等。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">正例:MarcoPolo / UserDO / XmlService / TcpUdpDeal / TaPromotion</div><div class="line">反例:macroPolo / UserDo / XMLService / TCPUDPDeal / TAPromotion</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>【强制】</strong>方法名、参数名、成员变量、局部变量都统一使用 <strong>lowerCamelCase</strong> 风格，必须遵从驼峰形式。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">正例: localValue / getHttpMessage() / inputUserId</div></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>【强制】</strong>抽象类命名使用 <strong>Abstract</strong> 或 <strong>Base</strong> 开头;异常类命名使用 <strong>Exception</strong> 结尾;测试类命名以它要测试的类的名称开始，以 <strong>Test</strong> 结尾。</p>
+</li>
+<li><p>【<strong>强制】</strong>POJO 类中<strong>布尔类型</strong>的变量，都不要加 is，否则部分框架解析会引起序列化错误。 反例:定义为基本数据类型Boolean isSuccess;的属性，它的方法也是isSuccess()，RPC 框架在反向解析的时候，“以为”对应的属性名称是 success，导致属性获取不到，进而抛出异常。</p>
+</li>
+<li><p><strong>【强制】</strong>包名统一使用小写，点分隔符之间有且仅有一个自然语义的英语单词。包名统一使用单数形式，但是类名如果有复数含义，类名可以使用复数形式。正例: 应用工具类包名com.alibaba.open.util、类名为MessageUtils(此规则参考 spring 的框架结构)。</p>
+</li>
+<li><p>接口和实现类的命名有两套规则：</p>
+<ul>
+<li><strong>【强制】</strong>对于 Service 和 DAO 类，基于SOA的理念，暴露出来的服务一定是接口，内部的实现类用 <strong>Impl</strong> 的后缀与接口区别。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">正例:CacheServiceImpl 实现 CacheService 接口。</div></pre></td></tr></table></figure>
+<ul>
+<li>【推荐】如果是形容能力的接口名称，取对应的形容词做接口名（通常是-able的形式）。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">正例:AbstractTranslator 实现 Translatable。</div></pre></td></tr></table></figure>
+</li>
+<li><p>【参考】各层命名规范：</p>
+<ul>
+<li>Service/DAO层方法命名规约：<ul>
+<li>获取单个对象的方法用get做前缀</li>
+<li>获取多个对象的方法用list做前缀</li>
+<li>获取统计值的方法用count做前缀</li>
+<li>插入的方法用save(推荐)或insert做前缀</li>
+<li>删除的方法用remove(推荐)或delete做前缀</li>
+<li>修改的方法用update做前缀</li>
+</ul>
+</li>
+<li>领域模型命名规范<ul>
+<li>数据对象:xxxDO，xxx即为数据表名</li>
+<li>数据传输对象:xxxDTO，xxx为业务领域相关的名称</li>
+<li>展示对象:xxxVO，xxx一般为网页名称</li>
+<li>POJO是DO/DTO/BO/VO的统称，禁止命名成xxxPOJO</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>格式规约</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	<span class="comment">// 缩进 4 个空格</span></div><div class="line">	String say = <span class="string">"hello"</span>;</div><div class="line">	<span class="comment">// 运算符的左右必须有一个空格</span></div><div class="line">	<span class="keyword">int</span> flag = <span class="number">0</span>;</div><div class="line">	<span class="comment">// 关键词 if 与括号之间必须有一个空格，括号内的 f 与左括号，0 与右括号不需要空格 </span></div><div class="line">  	<span class="keyword">if</span> (flag == <span class="number">0</span>) &#123;</div><div class="line">          System.out.println(say);</div><div class="line">       &#125;</div><div class="line">	<span class="comment">// 左大括号前加空格且不换行;左大括号后换行 </span></div><div class="line">  	<span class="keyword">if</span> (flag == <span class="number">1</span>) &#123;</div><div class="line">          System.out.println(<span class="string">"world"</span>);</div><div class="line">	<span class="comment">// 右大括号前换行，右大括号后有 else，不用换行</span></div><div class="line">	&#125; <span class="keyword">else</span> &#123; System.out.println(<span class="string">"ok"</span>);</div><div class="line">	<span class="comment">// 在右大括号后直接结束，则必须换行</span></div><div class="line">	&#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>OOP规约</p>
+<ul>
+<li><strong>【强制】</strong>Object 的 <strong>equals</strong> 方法容易抛空指针异常，应使用常量或确定有值的对象来调用 equals。</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">正例: "test".equals(object);</div><div class="line">反例: object.equals("test"); </div><div class="line">说明:推荐使用java.util.Objects#equals (JDK7引入的工具类)</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>【强制】</strong>所有的相同类型的包装类对象之间值的比较，全部使用 <strong>equals</strong> 方法比较。</li>
+</ul>
+<p>说明:</p>
+<p>​    对于Integer var = ?在-128至127之间的赋值，Integer对象是在 IntegerCache.cache 产生，会复用已有对象，这个区间内的 Integer 值可以直接使用==进行 判断，但是这个区间之外的所有数据，都会在堆上产生，并不会复用已有对象，这是一个大坑， 推荐使用 equals 方法进行判断。</p>
+</li>
+<li><p>集合处理</p>
+<ul>
+<li><strong>【强制】</strong>关于 hashCode 和 equals 的处理，遵循如下规则:<ul>
+<li>只要重写equals，就必须重写hashCode</li>
+<li>因为Set存储的是不重复的对象，依据hashCode和equals进行判断，所以Set存储的对象必须重写这两个方法</li>
+<li>如果自定义对象做为Map的键，那么必须重写hashCode和equals</li>
+</ul>
+</li>
+<li><strong>【强制】</strong>不要在 <strong>foreach</strong> 循环里进行元素的 remove/add 操作。remove 元素请使用 Iterator方式，如果并发操作，需要对 Iterator 对象加锁。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">反例:</div><div class="line">	List&lt;String&gt; a = <span class="keyword">new</span> ArrayList&lt;String&gt;(); </div><div class="line">	a.add(<span class="string">"1"</span>);</div><div class="line">	a.add(<span class="string">"2"</span>);</div><div class="line">	<span class="keyword">for</span> (String temp : a) &#123;</div><div class="line">		<span class="keyword">if</span> (<span class="string">"1"</span>.equals(temp)) &#123; </div><div class="line">          a.remove(temp);</div><div class="line">  		&#125; </div><div class="line">  	&#125;</div></pre></td></tr></table></figure>
+<p>说明:以上代码的执行结果肯定会出乎大家的意料，那么试一下把“1”换成“2”，会是同样的结果吗?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">正例:</div><div class="line">	Iterator&lt;String&gt; it = a.iterator(); </div><div class="line">	while (it.hasNext()) &#123;</div><div class="line">		String temp = it.next(); </div><div class="line">		if (删除元素的条件) &#123;</div><div class="line">             it.remove();</div><div class="line">         &#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>【推荐】高度注意 Map 类集合 K/V 能不能存储 null 值的情况，如下表格:</li>
+</ul>
+<p><img src="https://ww1.sinaimg.cn/large/006tNc79ly1fdveyflgehj30s60a1q4w.jpg" alt=""></p>
+<p>反例: 由于 HashMap 的干扰，很多人认为 ConcurrentHashMap 是可以置入 null 值，注意存储 null 值时会抛出 NPE 异常。</p>
+</li>
+</ul>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://yoursite.com/2017/03/22/2017-03-22-JAVA-coding-specification/" data-id="cj0kn18nz00004izx2xqf53no" class="article-share-link">分享到</a><div class="tags"><a href="/tags/Java/">-Java</a></div><div class="post-nav"><a href="/2017/03/13/2017-03-17-java-File-Class-md/" class="next">Java核心技术之File类详解</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java核心技术/">Java核心技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java-web技术/">java web技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java核心技术/">java核心技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux学习/">linux学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习计划/">学习计划</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Java/" style="font-size: 15px;">-Java</a> <a href="/tags/读书清单/" style="font-size: 15px;">读书清单</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/tomcat/" style="font-size: 15px;">tomcat</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/2017-03-22-JAVA-coding-specification/">Java语言编程规范总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/13/2017-03-17-java-File-Class-md/">Java核心技术之File类详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/2017-reading-plan/">2017读书计划</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/24/tomcat部署war包详解/">tomcat部署war包详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/23/每天一个linux指令-1-——curl/">每天一个linux指令(1)——curl</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">Walker.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
