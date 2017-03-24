@@ -18,13 +18,9 @@ html, button, input, select, textarea,
 
 body {
   /*background-color: #FFF;*/
-  background: url(/images/background.jpg);
+  background: url(/images/background1.jpg);
   background-attachment: fixed;
-  /*  color: #444;
-    font-family: "TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 14px;*/ }
+  /*blur-1853305_1920.jpg*/ }
 
 .body_container {
   padding: 0 60px;
