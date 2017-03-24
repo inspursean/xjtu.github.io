@@ -24,6 +24,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px; }
 
+title {
+  background-image: url(/images/background.jpg); }
+
 .body_container {
   padding: 0 60px;
   max-width: 1150px;
