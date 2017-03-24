@@ -17,10 +17,23 @@ html, button, input, select, textarea,
   font-family: "PingFangSC-Regular", Helvetica, "Helvetica Neue", "Segoe UI", "Hiragino Sans GB", "Source Han Sans CN", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", sans-serif; }
 
 body {
+  background-color: #FFF;
+  color: #444;
+  font-family: "TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px; }
+
+title {
   /*background-color: #FFF;*/
   background: url(/images/background1.jpg);
+  background-position: center;
   background-attachment: fixed;
-  /*blur-1853305_1920.jpg*/ }
+  /*  color: #444;
+    font-family: "TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 14px;*/ }
 
 .body_container {
   padding: 0 60px;
