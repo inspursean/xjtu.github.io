@@ -18,7 +18,7 @@ html, button, input, select, textarea,
 
 body {
   /*background-color: #FFF;*/
-  background: url(/images/background.jpeg);
+  background: url(/images/background.jpg);
   background-attachment: fixed;
   color: #444;
   font-family: "TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
