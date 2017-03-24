@@ -25,7 +25,8 @@ body {
   font-size: 14px; }
 
 title {
-  background-image: url(/images/background.jpg); }
+  /*background-image:url(/images/background.jpg);*/
+  background-color: #111; }
 
 .body_container {
   padding: 0 60px;
