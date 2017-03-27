@@ -62,8 +62,7 @@ div {
   text-align: left;
   border-bottom: 1px solid #ddd;
   position: relative;
-  /*    background-color: #FFF;
-*/
+  /*background-color: #FFF;*/
   background-image: url(/images/background1.jpg); }
   #header .site-name {
     margin-bottom: 40px; }
