@@ -63,7 +63,9 @@ div {
   border-bottom: 1px solid #ddd;
   position: relative;
   /*background-color: #FFF;*/
-  background-image: url(/images/back1.jpg) no-repeat; }
+  background-image: url(/images/back1.jpg);
+  background-repeat: no-repeat;
+  background-position: top; }
   #header .site-name {
     margin-bottom: 40px; }
     #header .site-name h1 {
