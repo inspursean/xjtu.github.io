@@ -61,7 +61,8 @@ div {
   padding: 58px 0 0;
   text-align: left;
   border-bottom: 1px solid #ddd;
-  position: relative; }
+  position: relative;
+  background-image: url(https://assets-cdn.shimo.im/assets/images/home/index/banner_back-91f35c0c1c.jpg); }
   #header .site-name {
     margin-bottom: 40px; }
     #header .site-name h1 {
