@@ -1720,6 +1720,7 @@ hr {
 .panel-main__content {
     max-width: 620px;
     margin: 0 auto;
+    writing-mode: lr-tb;
 }
 
 .panel-main__content--fixed {
