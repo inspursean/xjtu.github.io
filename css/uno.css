@@ -1691,7 +1691,7 @@ hr {
 .panel-cover__description {
     margin: 0 30px;
     writing-mode: tb-rl;
-    /*width: 50%;*/
+    width: 50%;
     height: 90px;
 }
 
