@@ -1686,6 +1686,7 @@ hr {
 
 .panel-cover__logo {
     margin-bottom: .2em;
+    writing-mode: lr-tb;
 }
 
 .panel-cover__description {
