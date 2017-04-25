@@ -1692,6 +1692,7 @@ hr {
     margin: 0 30px;
     writing-mode: tb-rl;
     width: 50%;
+    height: 102px;
 }
 
 .panel-cover__divider {
