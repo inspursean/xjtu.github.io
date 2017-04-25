@@ -1658,7 +1658,7 @@ hr {
     display: block;
     position: fixed;
     z-index: 900;
-    width: 100%;
+    width: 50%;
     max-width: none;
     height: 100%;
     background: url(../images/background-cover.jpg) top left no-repeat #666666;
@@ -1666,7 +1666,7 @@ hr {
 }
 
 .panel-cover--collapsed {
-    width: 22%;
+    width: 32%;
     max-width: 430px;
 }
 
