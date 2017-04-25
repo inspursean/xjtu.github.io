@@ -1657,8 +1657,8 @@ hr {
 .panel-cover {
     display: block;
     position: fixed;
-    z-index: 900;
-    width: 50%;
+    z-index: 300;
+    width: 100%;
     max-width: none;
     height: 100%;
     background: url(../images/background-cover.jpg) top left no-repeat #666666;
