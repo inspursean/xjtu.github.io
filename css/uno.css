@@ -1690,7 +1690,7 @@ hr {
 
 .panel-cover__description {
     margin: 0 30px;
-    writing-mode: lr-tb;
+    writing-mode: tb-lr;
 }
 
 .panel-cover__divider {
