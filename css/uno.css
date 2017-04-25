@@ -1666,8 +1666,8 @@ hr {
 }
 
 .panel-cover--collapsed {
-    width: 32%;
-    max-width: 400px;
+    width: 20%;
+    max-width: 300px;
 }
 
 .panel-cover--overlay {
