@@ -1657,7 +1657,7 @@ hr {
 .panel-cover {
     display: block;
     position: fixed;
-    z-index: 300;
+    z-index: 900;
     width: 100%;
     max-width: none;
     height: 100%;
@@ -1667,7 +1667,7 @@ hr {
 
 .panel-cover--collapsed {
     width: 32%;
-    max-width: 430px;
+    max-width: 130px;
 }
 
 .panel-cover--overlay {
